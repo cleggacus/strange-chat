@@ -1,0 +1,196 @@
+$width: 800px;
+$height: 500px;
+
+$widthInfo: 350px;
+$widthInfoAnimation: 550px;
+
+$widthForm: $width - $widthInfo;
+
+.container {
+  position: relative;
+  width: $width;
+  height: $height;
+
+  .infos, .forms {
+    position: absolute;
+    height: $height;
+  }
+
+  .infos {
+    transition: left 0.5s ease-in-out;
+    width: $widthInfo;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+
+    * {
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .infoInner {
+      transition: left 0.5s ease-in-out;
+      top: 0;
+      width: $width;
+      height: $height;
+      background-color: var(--bg-accent-1);
+
+      .bg {
+        transition: left 0.5s ease-in-out;
+        position: absolute;
+        filter: opacity(0.2) blur(2px);
+        top: 0;
+        width: $width + 150px;
+        height: $height;
+        background-repeat: repeat;
+      }
+
+      .info1 {
+        left: 0;
+      }
+
+      .info2 {
+        right: 0;
+      }
+
+      .info1, .info2 {
+        position: absolute;
+        width: $widthInfo;
+        height: $height;
+
+        > div {
+          text-align: center;
+          padding: 40px;
+        }
+      }
+    }
+  }
+
+  .infos.transition {
+    animation: 0.5s ease-in-out transition-info;
+  }
+
+  .forms {
+    transition: left 0.5s ease-in-out;
+    width: $width;
+
+    .form1, .form2 {
+      position: absolute;
+      top: 0;
+      height: 100%; 
+      padding: 0 10%;
+      width: $widthForm;
+
+      > div {
+        width: 100%;
+
+        input, button {
+          width: 100%;
+          margin: 10px 0;
+        }
+
+        .seperator {
+          width: 100%;
+          padding: 10px 0;
+
+          > div {
+            flex: 1;
+            height: 1px;
+            background-color: var(--fg-2);
+          }
+
+          p {
+            color: var(--fg-2);
+            margin: 0 20px;
+          }
+        }
+      }
+    }
+
+    .form1 {
+      transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    .form2 {
+      transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+  }
+}
+
+.login {
+  .infos {
+    left: $width - $widthInfo;
+
+    .infoInner {
+      left: $widthInfo - $width;
+
+      .bg {
+        left: -150px;
+      }
+    }
+  }
+
+  .forms {
+    .form1 {
+      opacity: 1;
+      left: 0;
+    }
+
+    .form2 {
+      opacity: 0;
+      right: 75px;
+      user-select: none;
+      pointer-events: none;
+
+      * {
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.register {
+  .infos {
+    left: 0;
+
+    .infoInner {
+      left: 0;
+
+      .bg {
+        left: -75px;
+      }
+    }
+  }
+
+  .forms {
+    .form1 {
+      opacity: 0;
+      left: 75px;
+      user-select: none;
+      pointer-events: none;
+
+      * {
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+
+    .form2 {
+      opacity: 1;
+      right: 0;
+    }
+  }
+}
+
+@keyframes transition-info {
+  0% {
+    width: $widthInfo;
+  }
+  50% {
+    width: $widthInfoAnimation;
+  }
+  100% {
+    width: $widthInfo;
+  }
+}
