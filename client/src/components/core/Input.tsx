@@ -1,7 +1,7 @@
 import styles from "../../styles/core/Input.module.scss";
-import { FC } from "react";
+import { FC, InputHTMLAttributes } from "react";
 
-type InputProps = React.HTMLAttributes<HTMLInputElement>;
+type InputProps = InputHTMLAttributes<HTMLInputElement>
 
 const Input: FC<InputProps> = ({className, ...props}) => {
   return <input {...props} className={`${className} ${styles.input}`}></input>

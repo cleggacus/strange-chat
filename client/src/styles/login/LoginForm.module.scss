@@ -7,6 +7,7 @@ $widthInfoAnimation: 550px;
 $widthForm: $width - $widthInfo;
 
 .container {
+  animation: 1s ease fade-in;
   position: relative;
   width: $width;
   height: $height;
@@ -182,6 +183,19 @@ $widthForm: $width - $widthInfo;
     }
   }
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+
 
 @keyframes transition-info {
   0% {

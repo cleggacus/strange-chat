@@ -11,9 +11,9 @@ type Props = {
 const RegisterForm: FC<Props> = ({ switchState }) => {
   return <Div centerItems className={styles.form2}>
     <Div>
-      <Input placeholder="Email"></Input>
-      <Input placeholder="Password"></Input>
-      <Input placeholder="Retype Password"></Input>
+      <Input type="email" placeholder="Email"></Input>
+      <Input type="password" placeholder="Password"></Input>
+      <Input type="password" placeholder="Retype Password"></Input>
       <Button>Create Account</Button>
       <Div centerItems className={styles.seperator}>
         <Div></Div>

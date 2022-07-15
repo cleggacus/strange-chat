@@ -11,8 +11,8 @@ type Props = {
 const LoginForm: FC<Props> = ({ switchState }) => {
   return <Div centerItems className={styles.form1}>
     <Div>
-      <Input placeholder="Email / Username"></Input>
-      <Input placeholder="Password"></Input>
+      <Input type="email" placeholder="Email / Username"></Input>
+      <Input type="password" placeholder="Password"></Input>
       <Button>Sign in</Button>
       <Div centerItems className={styles.seperator}>
         <Div></Div>

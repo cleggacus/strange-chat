@@ -1,10 +1,8 @@
 import express from "express";
+import user from "./user";
+
 const router = express.Router();
 
-router.get("/cock", (_req, res, _next) => {
-  res.status(200).json({
-    mes: "cum"
-  });
-})
+router.use("/user", user);
 
 export default router;
