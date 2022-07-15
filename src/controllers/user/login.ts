@@ -11,6 +11,8 @@ type LoginData = {
 const login = (req: Request<{}, {}, LoginData>, res: Response, _next: NextFunction) => {
   const jwtSecret = process.env.JwtSecret || "";
 
+  console.log(req.body);
+
   verifyUser(req.body)
     .then(user => {
       const token = jwt.sign({

@@ -12,7 +12,6 @@ export default (req: Request<{}, {}, {}>, res: Response, next: NextFunction) => 
     const jwtSecret = process.env.JwtSecret || "";
     const token = req.cookies.jwt;
     const userData = jwt.verify(token, jwtSecret);
-    console.log(userData);
       
     if (!userData) {
       return res.status(401).json({
@@ -23,7 +22,6 @@ export default (req: Request<{}, {}, {}>, res: Response, next: NextFunction) => 
       next();
     }
   } catch (err) {
-    console.log(err)
     return res.status(401).json({
       err: 'Auth failed.'
     });

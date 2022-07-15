@@ -90,6 +90,11 @@ $widthForm: $width - $widthInfo;
           margin: 10px 0;
         }
 
+        .err {
+          margin: 10px 0;
+          color: var(--fg-err);
+        }
+
         .seperator {
           width: 100%;
           padding: 10px 0;
