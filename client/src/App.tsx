@@ -1,35 +1,45 @@
-import Div from "./components/core/Div";
 import Layout from "./components/layout"
 
 import {
   BrowserRouter,
   Routes,
   Route,
-  Link
+  Navigate
 } from "react-router-dom";
 
-import styles from "./styles/App.module.scss";
 import Login from "./views/Login";
 import Register from "./views/Register";
+import { StoreContext, StoreProvider } from "./store/store";
+import { useContext } from "react";
 
-const Test = () => {
-  return <Div className={styles.cum} centerItems width={"100%"} height={"100%"}>
-    
-  </Div>
+const Router = () => {
+  const { state, dispatch } = useContext(StoreContext);
+
+  return <BrowserRouter> 
+    <Routes>
+      {
+        state.userState && <>
+          <Route path="/" element={<Layout/>} />
+          <Route path="/login"  element={<Navigate to="/"/>} />
+          <Route path="/register"  element={<Navigate to="/"/>} />
+        </>
+      }
+
+      {
+        !state.userState && <>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login"  element={<Login/>} />
+          <Route path="/register"  element={<Register/>} />
+        </>
+      }
+    </Routes>
+  </BrowserRouter>
 }
 
 const App = () => {
-  return <>
-    <BrowserRouter>    
-      <Routes>
-        <Route path="/" element={<Layout/>}>
-        </Route>
-
-        <Route path="/login"  element={<Login/>} />
-        <Route path="/register"  element={<Register/>} />
-      </Routes>
-    </BrowserRouter>
-  </>
+  return <StoreProvider>
+    <Router/>
+  </StoreProvider>
 }
 
 export default App;
