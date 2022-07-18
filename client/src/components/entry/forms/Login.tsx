@@ -1,14 +1,17 @@
 import styles from "../../../styles/login/LoginForm.module.scss";
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import Div from "../../core/Div";
 import Input from "../../core/Input";
 import Button from "../../core/Button";
+import { StoreContext } from "../../../store/store";
 
 type Props = {
   switchState: () => void
 }
 
 const LoginForm: FC<Props> = ({ switchState }) => {
+  const { dispatch } = useContext(StoreContext);
+
   const [err, setErr] = useState("");
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -30,8 +33,16 @@ const LoginForm: FC<Props> = ({ switchState }) => {
       .then(data => {
         if(data.err)
           setErr(data.err)
-        else
-          setErr("")
+        else {
+          console.log(data)
+          dispatch({
+            type: "setUser",
+            payload: {
+              username: data.username,
+              email: data.email
+            }
+          })
+        }
       })
       .catch(err => {
         console.log(err)
