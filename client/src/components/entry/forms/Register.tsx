@@ -1,6 +1,5 @@
-import styles from "../../../styles/login/LoginForm.module.scss";
-import { FC, useEffect, useState } from "react";
-import Div from "../../core/Div";
+import styles from "../../../styles/EntryForm.module.scss";
+import { FC, useState } from "react";
 import Input from "../../core/Input";
 import Button from "../../core/Button";
 
@@ -46,22 +45,22 @@ const RegisterForm: FC<Props> = ({ switchState }) => {
       })  
   }
 
-  return <Div centerItems className={styles.form2}>
-    <Div>
+  return <div className={styles.form2}>
+    <div>
       <Input onChange={e => setUsername(e.target.value)} type="text" placeholder="Username"></Input>
       <Input onChange={e => setEmail(e.target.value)} type="email" placeholder="Email"></Input>
       <Input onChange={e => setPassword(e.target.value)} type="password" placeholder="Password"></Input>
       <Input onChange={e => setRePassword(e.target.value)} type="password" placeholder="Retype Password"></Input>
       <p className={styles.err}>{err}</p>
       <Button onClick={register}>Create Account</Button>
-      <Div centerItems className={styles.seperator}>
-        <Div></Div>
+      <div className={styles.seperator}>
+        <div></div>
         <p>or</p>
-        <Div></Div>
-      </Div>
+        <div></div>
+      </div>
       <Button onClick={switchState}>Sign in</Button>
-    </Div>
-  </Div>
+    </div>
+  </div>
 }
 
 export default RegisterForm;

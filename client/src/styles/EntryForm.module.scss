@@ -6,11 +6,23 @@ $widthInfoAnimation: 550px;
 
 $widthForm: $width - $widthInfo;
 
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-2);
+}
+
 .container {
   animation: 1s ease fade-in;
   position: relative;
   width: $width;
   height: $height;
+  border-radius: 10px;
+  background-color: var(--bg-1);
+  overflow: hidden;
 
   .infos, .forms {
     position: absolute;
@@ -30,6 +42,7 @@ $widthForm: $width - $widthInfo;
     }
 
     .infoInner {
+      position: relative;
       transition: left 0.5s ease-in-out;
       top: 0;
       width: $width;
@@ -39,7 +52,7 @@ $widthForm: $width - $widthInfo;
       .bg {
         transition: left 0.5s ease-in-out;
         position: absolute;
-        filter: opacity(0.2) blur(2px);
+        filter: opacity(0.15) blur(3px);
         top: 0;
         width: $width + 150px;
         height: $height;
@@ -58,6 +71,9 @@ $widthForm: $width - $widthInfo;
         position: absolute;
         width: $widthInfo;
         height: $height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         > div {
           text-align: center;
@@ -81,6 +97,9 @@ $widthForm: $width - $widthInfo;
       height: 100%; 
       padding: 0 10%;
       width: $widthForm;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       > div {
         width: 100%;
@@ -96,6 +115,9 @@ $widthForm: $width - $widthInfo;
         }
 
         .seperator {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           width: 100%;
           padding: 10px 0;
 

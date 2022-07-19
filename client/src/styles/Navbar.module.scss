@@ -1,0 +1,90 @@
+$closedWidth: 45px;
+$openWidth: 200px;
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 0;
+  background-color: var(--bg-1);
+
+  .section {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      text-decoration: none;
+    }
+
+    .elem {
+      padding: 10px 15px;
+
+      .cropper {
+        overflow: hidden;
+        transition: width 0.5s ease;
+        border-radius: 10px;
+
+        .inner {
+          transition: background-color 0.5s ease, color 0.5s ease;
+          color: var(--fg-2);
+          display: flex;
+          align-items: center;
+          border-radius: 10px;
+          width: $openWidth;
+
+          .icon {
+            width: $closedWidth;
+            height: $closedWidth;
+
+            svg {
+              width: $closedWidth;
+              height: $closedWidth;
+              padding: 10px;
+            }
+          }
+
+          p {
+            width: $openWidth;
+            padding: 10px 10px 10px 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .elem:hover {
+      .cropper {
+        .inner {
+          background-color: var(--bg-3);
+          color: var(--fg-1);
+        }
+      }
+    }
+
+    .elem.active {
+      .cropper {
+        .inner {
+          background-color: var(--bg-accent-2);
+          color: var(--fg-1);
+        }
+      }
+    }
+  }
+}
+
+.container.open {
+  .elem {
+    .cropper {
+      width: $openWidth;
+    }
+  }
+}
+
+.container.close {
+  .elem {
+    .cropper {
+      width: $closedWidth;
+    }
+  }
+}

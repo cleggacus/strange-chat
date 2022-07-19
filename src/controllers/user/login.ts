@@ -26,7 +26,12 @@ const login = (req: Request<{}, {}, LoginData>, res: Response, _next: NextFuncti
         httpOnly: true
       }).status(200).json({
         mes: "Auth successful.",
-        token: token
+        token: token,
+        userData: {
+          id: user._id,
+          username: user.username,
+          email: user.email
+        }
       });
     })
     .catch(err => {

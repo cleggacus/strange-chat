@@ -1,6 +1,5 @@
-import styles from "../../../styles/login/LoginForm.module.scss";
+import styles from "../../../styles/EntryForm.module.scss";
 import { FC } from "react";
-import Div from "../../core/Div";
 import LoginForm from "./Login";
 import RegisterForm from "./Register";
 
@@ -9,10 +8,10 @@ type Props = {
 }
 
 const Forms: FC<Props> = ({ switchState }) => {
-  return <Div className={styles.forms}>
+  return <div className={styles.forms}>
     <LoginForm switchState={switchState}></LoginForm>
     <RegisterForm switchState={switchState}></RegisterForm>
-  </Div>
+  </div>
 }
 
 export default Forms;

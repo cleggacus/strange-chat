@@ -39,7 +39,7 @@ const StoreProvider: FC<Props> = ({ children }) => {
       .catch(err => {
         console.log(err)
       })
-  })
+  }, [])
 
   return <StoreContext.Provider value={{state, dispatch}}>
     {children}

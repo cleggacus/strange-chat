@@ -1,5 +1,4 @@
-import Box from "../core/Box";
-import styles from "../../styles/login/LoginForm.module.scss";
+import styles from "../../styles/EntryForm.module.scss";
 import { FC, useEffect, useState } from "react";
 import Forms from "./forms";
 import Infos from "./infos";
@@ -24,10 +23,12 @@ const EntryForm: FC<Props> = ({ initFormState }) => {
     setFormState(formState == "Login" ? "Register" : "Login");
   }
 
-  return <Box className={`${styles.container} ${formState == "Login" ? styles.login : styles.register}`}>
-    <Forms switchState={switchState}></Forms>
-    <Infos transitionState={transitionState}></Infos>
-  </Box>
+  return <div className={styles.outer}>
+    <div className={`${styles.container} ${formState == "Login" ? styles.login : styles.register}`}>
+      <Forms switchState={switchState}></Forms>
+      <Infos transitionState={transitionState}></Infos>
+    </div>
+  </div>
 }
 
 export default EntryForm;

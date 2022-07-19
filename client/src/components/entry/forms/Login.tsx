@@ -1,6 +1,5 @@
-import styles from "../../../styles/login/LoginForm.module.scss";
-import { FC, useContext, useEffect, useState } from "react";
-import Div from "../../core/Div";
+import styles from "../../../styles/EntryForm.module.scss";
+import { FC, useContext, useState } from "react";
 import Input from "../../core/Input";
 import Button from "../../core/Button";
 import { StoreContext } from "../../../store/store";
@@ -34,12 +33,11 @@ const LoginForm: FC<Props> = ({ switchState }) => {
         if(data.err)
           setErr(data.err)
         else {
-          console.log(data)
-          dispatch({
+          return dispatch({
             type: "setUser",
             payload: {
-              username: data.username,
-              email: data.email
+              username: data.userData.username,
+              email: data.userData.email
             }
           })
         }
@@ -49,20 +47,20 @@ const LoginForm: FC<Props> = ({ switchState }) => {
       })
   }
 
-  return <Div centerItems className={styles.form1}>
-    <Div>
+  return <div className={styles.form1}>
+    <div>
       <Input onChange={e => setUser(e.target.value)} placeholder="Email / Username"></Input>
       <Input onChange={e => setPassword(e.target.value)} type="password" placeholder="Password"></Input>
       <p className={styles.err} >{err}</p>
       <Button onClick={login}>Sign in</Button>
-      <Div centerItems className={styles.seperator}>
-        <Div></Div>
+      <div className={styles.seperator}>
+        <div></div>
         <p>or</p>
-        <Div></Div>
-      </Div>
+        <div></div>
+      </div>
       <Button onClick={switchState}>Create Account</Button>
-    </Div>
-  </Div>
+    </div>
+  </div>
 }
 
 export default LoginForm;
